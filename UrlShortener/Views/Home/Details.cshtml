@@ -16,7 +16,7 @@
     <tbody>
     <tc>
         <th scope="row">@Model.Id</th>
-        <td><a asp-action="RedirectByShortUrl" asp-controller="Home" asp-route-shortUrl="@Model.ShortUrl">@Model.ShortUrl</a></td>
+        <td><a asp-action="RedirectByShortUrl" asp-controller="Home" asp-route-shortUrl="@Model.ShortUrl">https://localhost:7209/@Model.ShortUrl</a></td>
         <td><a asp-action="ExternalRedirect" asp-controller="Home" asp-route-externalUrl="@Model.LongUrl">@Model.LongUrl</a></td>
         <td>@Model.CreatedBy</td>
         <td>@Model.CreatedData</td>

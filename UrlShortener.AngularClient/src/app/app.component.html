@@ -1,0 +1,96 @@
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand">UrlShortener</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-dark" [href]="setUrlFormat('about')">About</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+        @if(token){
+          <ul class="navbar-nav">
+            <li class="nav-item m-auto">
+              <p class="nav-item m-auto"> Hello, {{decodedToken.name}} </p>
+            </li>
+            <li class="nav-item m-auto">
+              <a class="nav-link text-dark" [href]="setUrlFormat('account/logout')">Logout</a>
+            </li>
+          </ul>
+        }@else{
+          <ul class="navbar-nav">
+            <li class="nav-item m-auto">
+              <a class="nav-link text-dark" [href]="setUrlFormat('account/login')">Login</a>
+            </li>
+          </ul>
+        }
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="container">
+  <main role="main" class="pb-3">
+    <div class="container">
+      <div style="width: 1000px" class="container">
+        <form *ngIf="token" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form-group">
+          <label for="urlInput">Url</label>
+          <input formControlName="url" type="url" class="form-control" id="urlInput" aria-describedby="emailHelp" placeholder="Enter url">
+          <small style="display: block" class="text-danger" *ngIf="formGroup.get('url')?.invalid && formGroup.get('url')?.touched">
+            Url is required and should be from 10 to 1000 characters long.
+          </small>
+          <small style="display: block" class="text-danger" *ngIf="errorMessage">
+            {{errorMessage}}
+          </small>
+          <button type="submit" class="form-button btn btn-primary mt-1">Add new URL</button>
+          <button type="button"
+                  *ngIf="token && decodedToken.role == 'Admin'"
+                  (click)="onDeleteAllClick()"
+                  class="form-button btn btn-danger mx-1 mt-1">Delete all URLs</button>
+        </form>
+
+      </div>
+
+      <div style="width: 1000px" class="container">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Short URL</th>
+            <th scope="col">Long URL</th>
+            <th *ngIf="token" scope="col">Actions</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let url of urls">
+          <tr>
+            <td><a [href]=redirectByShortUrl(url.shortUrl)>{{setUrlFormat(url.shortUrl)}}</a></td>
+            <td><a [href]=redirectByLongUrl(url.longUrl)>{{url.longUrl}}</a></td>
+            <td>
+              <div *ngIf="token && url.createdBy === decodedToken.id || token && decodedToken.role == 'Admin'">
+                <a class="btn btn-primary mx-2" [href]="onDetailsClick(url.shortUrl)">Details</a>
+                <button class="btn btn-danger" (click)="onDeleteClick(url.shortUrl)">Delete</button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <style>
+      .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        margin: auto;
+      }
+    </style>
+  </main>
+</div>
+
+

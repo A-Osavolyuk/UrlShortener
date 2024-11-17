@@ -33,7 +33,6 @@ public class HomeController(
         return Redirect("https://" + externalUrl);
     }
     
-    [HttpGet("/short-urls-table")]
     public IActionResult UrlsTable()
     {
         if (HttpContext.User.Identity != null && HttpContext.User.Identity.IsAuthenticated)
