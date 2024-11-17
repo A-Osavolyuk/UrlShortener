@@ -1,23 +1,38 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E3888579-6C86-4A73-A032-8814E559A048}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{84565413-5270-4D16-84F5-E714FA9A1E0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Url.Shortener.Api", "Url.Shortener.Api\Url.Shortener.Api.csproj", "{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UrlShortener", "UrlShortener\UrlShortener.csproj", "{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "UrlShortener.AngularClient", "UrlShortener.AngularClient\UrlShortener.AngularClient.esproj", "{ED6B4270-7EEA-4DB1-9526-C21099924888}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4} = {E3888579-6C86-4A73-A032-8814E559A048}
-	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E42A101-7D83-4F1E-A676-C0EDC5D3E6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED6B4270-7EEA-4DB1-9526-C21099924888}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE24D69A-0C52-4D16-BAB5-E7C9DDEB6925} = {E3888579-6C86-4A73-A032-8814E559A048}
+		{ED6B4270-7EEA-4DB1-9526-C21099924888} = {E3888579-6C86-4A73-A032-8814E559A048}
 	EndGlobalSection
 EndGlobal

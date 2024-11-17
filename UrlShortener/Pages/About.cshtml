@@ -1,0 +1,21 @@
+﻿@page "/about"
+@model UrlShortener.Pages.About
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "About";
+}
+
+<h3>@Html.Raw(Model.Description.Replace("<br>", "<br>"))</h3>
+
+@if (HttpContext.User.Identity is { IsAuthenticated: true } && HttpContext.User.IsInRole("Admin"))
+{
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Description">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+        </div>
+        <button class="btn btn-primary mt-1" type="submit">Save changes</button>
+    </form>
+}

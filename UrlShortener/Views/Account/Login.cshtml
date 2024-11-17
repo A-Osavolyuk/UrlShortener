@@ -1,0 +1,46 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <h2 class="text-center">Login</h2>
+    <form asp-controller="Account" asp-action="Login" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group mt-1">
+            <label asp-for="Login"></label>
+            <input asp-for="Login" class="form-control"/>
+            <span asp-validation-for="Login" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-1">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control"/>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary mt-1 submit-button">Login</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        width: 500px;
+    }
+
+    .button-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .submit-button{
+        width: 200px;
+    }
+</style>

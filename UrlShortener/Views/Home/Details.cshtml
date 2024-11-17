@@ -1,0 +1,25 @@
+﻿@model UrlEntity
+@{
+    ViewBag.Title = string.IsNullOrEmpty(Model.ShortUrl) ? "Details" : $"Details {Model.ShortUrl}";
+}
+
+<table class="table">
+    <thead>
+    <tc>
+        <th scope="row">Id</th>
+        <th scope="row">Short Url</th>
+        <th scope="row">Long Url</th>
+        <th scope="row">Create by</th>
+        <th scope="row">Create date</th>
+    </tc>
+    </thead>
+    <tbody>
+    <tc>
+        <th scope="row">@Model.Id</th>
+        <td><a asp-action="RedirectByShortUrl" asp-controller="Home" asp-route-shortUrl="@Model.ShortUrl">@Model.ShortUrl</a></td>
+        <td><a asp-action="ExternalRedirect" asp-controller="Home" asp-route-externalUrl="@Model.LongUrl">@Model.LongUrl</a></td>
+        <td>@Model.CreatedBy</td>
+        <td>@Model.CreatedData</td>
+    </tc>
+    </tbody>
+</table>
